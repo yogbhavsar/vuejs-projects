@@ -1,6 +1,6 @@
 # sudoku-vue
 
-This repo contains the working solution as SPA with tests for Sudoku in VueJS 3 (3.5.30) with TypeScript
+Working SPA with tests for Sudoku in VueJS 3 (3.5.30) with TypeScript
 
 ## Features
 
