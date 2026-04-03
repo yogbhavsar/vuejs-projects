@@ -5,17 +5,8 @@ on:
             - 'sudoku-vue/**'
 
 jobs:
-    setup-node:
+    build-and-test:
         runs-on: ubuntu-latest
-        steps:
-            - uses: actions/checkout@v3
-            - name: Set up Node.js
-              uses: actions/setup-node@v4
-              with:
-                node-version: 24
-    build:
-        runs-on: ubuntu-latest
-        needs: setup-node
         steps:
             - uses: actions/checkout@v3
             - name: Set up Node.js
@@ -32,12 +23,6 @@ jobs:
                 npm run lint:oxlint
                 npm run format
                 npm run build
-    test:
-        runs-on: ubuntu-latest
-        needs: 
-            - setup-node
-            - build
-        steps:
             - name: Run tests
               run: |
                 cd sudoku-vue
