@@ -14,9 +14,12 @@ jobs:
               with:
                 node-version: 24
             - name: Install dependencies
-              run: npm install
+              run: |
+                cd sudoku-vue
+                npm install
             - name: Build project
               run: |
+                cd sudoku-vue
                 npm run lint:oxlint
                 npm run format
                 npm run build
@@ -24,4 +27,6 @@ jobs:
         runs-on: ubuntu-latest
         steps:
             - name: Run tests
-              run: npm run test:unit
+              run: |
+                cd sudoku-vue
+                npm run test:unit
