@@ -1,0 +1,27 @@
+on:
+    pull_request:
+        branches: [main]
+        paths: 
+            - 'sudoku-vue/**'
+
+jobs:
+    build:
+        runs-on: ubuntu-latest
+        steps:
+            - uses: actions/checkout@v3
+            - name: Set up Node.js
+              uses: actions/setup-node@v4
+              with:
+                node-version: 24
+            - name: Install dependencies
+              run: npm install
+            - name: Build project
+              run: |
+                npm run lint:oxlint
+                npm run format
+                npm run build
+    test:
+        runs-on: ubuntu-latest
+        steps:
+            - name: Run tests
+              run: npm run test:unit
