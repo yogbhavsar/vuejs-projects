@@ -1,0 +1,13 @@
+﻿@using MvcToVue.Helpers
+
+@inject ViteHelper ViteHelper
+
+@section Scripts {
+    <link rel="stylesheet" type="text/css" href="@ViteHelper.GetCss("src/entries/Privacy.ts")" />
+}
+
+@{
+    var privacyPageFile = ViteHelper.GetFile("src/entries/Privacy.ts");
+}
+<div id="app"></div>
+<script type="module" src="@privacyPageFile"></script>
