@@ -21,14 +21,14 @@ public class ViteHelper
     {
         return _manifest.TryGetValue(entryName, out var entry)
             ? "/dist/" + entry.File
-            : throw new Exception($"Entry '{entryName}' not found in manifest.");
+            : throw new ArgumentException($"Entry '{entryName}' not found in manifest.");
     }
 
     public string GetCss(string entryName)
     {
         return _manifest.TryGetValue(entryName, out var entry)
             ? "/dist/" + entry.Css[0]
-            : throw new Exception($"Entry '{entryName}' not found in manifest.");
+            : throw new ArgumentException($"Entry '{entryName}' not found in manifest.");
     }
 }
 
